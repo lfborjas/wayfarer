@@ -1,0 +1,1 @@
+rvm --create --rvmrc use 1.9.2@wayfarer
