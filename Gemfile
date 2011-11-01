@@ -39,7 +39,3 @@ group :test do
   gem 'jasmine'
   gem 'webmock'
 end
-
-group :production do
-  gem 'pg'
-end
