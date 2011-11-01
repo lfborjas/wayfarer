@@ -8,6 +8,7 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
             center: new google.maps.LatLng(center.coords.latitude, center.coords.longitude)
             mapTypeId: google.maps.MapTypeId.ROADMAP
         )
+        @bounds = new google.maps.LatLngBounds()
     add_controls : (controls)->
         for position, control of controls
             @map.controls[google.maps.ControlPosition[position]].push control
@@ -23,9 +24,12 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
     add_marker : (model, visible = true) ->
         model = model.attributes if model.attributes?
         marker = new google.maps.Marker(
-          position : new google.maps.LatLng(model.latitude, model.longitude)
+          position : new google.maps.LatLng(model.lat, model.lng)
           map: @map
         )
         marker.setVisible visible
         @bounds.extend marker.position
         marker
+    fit_bounds : () ->
+        if @bounds?
+            @map.fitBounds @bounds

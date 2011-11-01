@@ -10,3 +10,9 @@ $ ->
                 latitude: 39.87
                 longitude: -75.24
     )
+    view = new Wayfarer.Views.Feeds.IndexView(
+        map: map
+        collection: new Wayfarer.Collections.TourCollection
+    )
+    view.render()
+    view.map.fit_bounds()
