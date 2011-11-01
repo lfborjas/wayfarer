@@ -1,2 +1,12 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= content_for :scripts do %>
+  <%= javascript_include_tag "http://maps.google.com/maps/api/js?sensor=false" %>
+<%end%>
+
+<header>
+  Wayfarer
+</header>
+
+<div id="map">
+</div>
+
+<ul id="feed-list"></div>
