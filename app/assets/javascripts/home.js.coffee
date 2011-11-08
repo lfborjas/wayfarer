@@ -14,8 +14,9 @@ $ ->
                 latitude: 40.714623
                 longitude: -74.006605
     )
+    feed = new Wayfarer.Collections.TourCollection
     view = new Wayfarer.Views.Feeds.IndexView(
         map: map
-        collection: new Wayfarer.Collections.TourCollection
+        collection: feed
     )
     view.render()

@@ -10,5 +10,5 @@ class Wayfarer.Views.Feeds.IndexView extends Backbone.View
         @collection.fetch
             success:(collection)->
                 collection.each (element)->
-                    self.map.add_marker(element)
+                    element.marker = self.map.add_marker(element)
                 self.map.fit_bounds()
