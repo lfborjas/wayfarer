@@ -6,7 +6,6 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         @collection = options.collection
     bind_markers: ->
         @collection.each (model, index)=>
-            console.log index, model
             google.maps.event.addListener(
                 model.marker,
                 'click',
