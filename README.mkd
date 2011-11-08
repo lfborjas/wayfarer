@@ -1,0 +1,13 @@
+Ideas:
+
+* The gallery should accept iframes and basically anything.
+* The map should adapt to a size parameter:
+    * The small map doesn't have a gallery
+    * The big map has a gallery (duh)
+
+
+So the embed will display any **one** of the various content providers for comcast, so it should be something like
+<http://map.com/?city=philly&channel=pictours> and show the pictours for the given city.
+
+
+
