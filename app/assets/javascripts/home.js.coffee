@@ -7,12 +7,12 @@ $ ->
         el: $("#map")
         center:
             coords:
-                latitude: 39.87
-                longitude: -75.24
+                latitude: 40.714623
+                longitude: -74.006605
     )
     view = new Wayfarer.Views.Feeds.IndexView(
         map: map
         collection: new Wayfarer.Collections.TourCollection
     )
     view.render()
-    view.map.fit_bounds()
+    window.map = view.map
