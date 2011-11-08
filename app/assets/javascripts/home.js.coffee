@@ -13,10 +13,19 @@ $ ->
             coords:
                 latitude: 40.714623
                 longitude: -74.006605
+        controls:
+            'TOP_LEFT': $("#gallery")
     )
     feed = new Wayfarer.Collections.TourCollection
-    view = new Wayfarer.Views.Feeds.IndexView(
+    markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map
         collection: feed
     )
-    view.render()
+
+    gallery_view = new Wayfarer.Views.Feeds.GalleryView(
+        el: $("#gallery")
+    )
+
+    markers_view.render(->
+        gallery_view.render()
+    )

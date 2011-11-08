@@ -13,10 +13,11 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
             zoomControlOptions: control_position
             streetViewControlOptions: control_position
         )
+        this.add_controls this.options.controls
         @bounds = new google.maps.LatLngBounds()
     add_controls : (controls)->
         for position, control of controls
-            @map.controls[google.maps.ControlPosition[position]].push control
+            @map.controls[google.maps.ControlPosition[position]].push control[0]
     set_center : (point, add_marker = false) ->
         _center = unless point instanceof google.maps.LatLng
                     new google.maps.LatLng(point.latitude, point.longitude)
