@@ -2,7 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+#This should be the point of entry for the entire map
+
 $ ->
+    #TODO: the city should be a parameter
+    #The feeds should be a list too
     map = new Wayfarer.Views.Maps.MapView(
         el: $("#map")
         center:
@@ -15,4 +19,3 @@ $ ->
         collection: new Wayfarer.Collections.TourCollection
     )
     view.render()
-    window.map = view.map

@@ -3,10 +3,15 @@ Wayfarer.Views.Maps ||= {}
 class Wayfarer.Views.Maps.MapView extends Backbone.View
     initialize: ->
         center = this.options.center
+        control_position = {position: google.maps.ControlPosition.TOP_RIGHT}
         @map = new google.maps.Map((unless @el instanceof jQuery then $(@el) else @el)[0],
             zoom : 15
             center: new google.maps.LatLng(center.coords.latitude, center.coords.longitude)
             mapTypeId: google.maps.MapTypeId.ROADMAP
+            panControlOptions: control_position
+            rotateControlOptions: control_position
+            zoomControlOptions: control_position
+            streetViewControlOptions: control_position
         )
         @bounds = new google.maps.LatLngBounds()
     add_controls : (controls)->
