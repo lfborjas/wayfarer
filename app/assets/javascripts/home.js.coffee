@@ -24,6 +24,7 @@ $ ->
 
     gallery_view = new Wayfarer.Views.Feeds.GalleryView(
         el: $("#gallery")
+        collection: feed
     )
 
     markers_view.render(->
