@@ -5,7 +5,6 @@
 #This should be the point of entry for the entire map
 
 $ ->
-    Galleria.loadTheme('assets/galleria.classic.min.js')
     #TODO: the city should be a parameter
     #The feeds should be a list too
     map = new Wayfarer.Views.Maps.MapView(
@@ -23,11 +22,15 @@ $ ->
         collection: feed
     )
 
-    gallery_view = new Wayfarer.Views.Feeds.GalleryView(
-        el: $("#gallery")
-        collection: feed
-    )
+    if Wayfarer.mode and Wayfarer.mode is 'full'
+        Galleria.loadTheme('assets/galleria.classic.min.js')
+        gallery_view = new Wayfarer.Views.Feeds.GalleryView(
+            el: $("#gallery")
+            collection: feed
+        )
 
-    markers_view.render(->
-        gallery_view.render()
-    )
+        markers_view.render(->
+            gallery_view.render()
+        )
+    else
+        markers_view.render()
