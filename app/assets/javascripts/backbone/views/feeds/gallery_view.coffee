@@ -11,6 +11,7 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
                 'click',
                 () =>
                     @gallery.show index
+                    model.highlight()
             )
     gallery_data: ->
         @collection.map (model)->
@@ -28,7 +29,6 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         )
         @gallery = Galleria.get(0)
         @bind_markers()
-        ###
+
         @gallery.bind 'loadfinish', (e)=>
-            @collection.models[e.index].marker.highlight()
-        ###
+            @collection.models[e.index].highlight()
