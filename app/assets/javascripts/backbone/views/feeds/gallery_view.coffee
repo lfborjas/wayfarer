@@ -24,8 +24,8 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         self = this
         @el.galleria(
             data_source: self.gallery_data()
-            width: 400
-            height: 350
+            width: Wayfarer.dimensions.width / 3
+            height: Wayfarer.dimensions.height / 3
         )
         @gallery = Galleria.get(0)
         @bind_markers()
