@@ -7,12 +7,10 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
         styles = [
             {
                 featureType: "road.arterial"
-                elementType: "geometry"
                 stylers: [{hue: "#cab286"}, {saturation: -61}, {lightness: -14}]
             }
             {
                 featureType: "road.highway"
-                elementType: "geometry"
                 stylers: [{hue: "#a38757"}, {saturation: -29}, {lightness: -37}]
             }
             {
