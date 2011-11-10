@@ -4,6 +4,22 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
     initialize: ->
         center = this.options.center
         control_position = {position: google.maps.ControlPosition.TOP_RIGHT}
+        styles = [
+            {
+                featureType: "road.arterial"
+                elementType: "geometry"
+                stylers: [{hue: "#cab286"}, {saturation: -61}, {lightness: -14}]
+            }
+            {
+                featureType: "road.highway"
+                elementType: "geometry"
+                stylers: [{hue: "#a38757"}, {saturation: -29}, {lightness: -37}]
+            }
+            {
+                featureType: "poi.park"
+                stylers: [{hue: "#a5b779"}, {saturation: -30}, {lightness: -24}]
+            }
+        ]
         @map = new google.maps.Map((unless @el instanceof jQuery then $(@el) else @el)[0],
             zoom : 15
             center: new google.maps.LatLng(center.coords.latitude, center.coords.longitude)
@@ -12,6 +28,7 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
             rotateControlOptions: control_position
             zoomControlOptions: control_position
             streetViewControlOptions: control_position
+            styles: styles
         )
         this.add_controls this.options.controls
         @bounds = new google.maps.LatLngBounds()
