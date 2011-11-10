@@ -15,4 +15,12 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  def demo_feed
+    respond_to do |format|
+      format.json do
+        render :json => DemoFeed.items
+      end
+    end
+  end
 end

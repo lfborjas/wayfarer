@@ -50,6 +50,7 @@ Wayfarer::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
   match 'embed(.:format)' => "home#index", :as => 'embed'
+  match "feeds/demo" => "home#demo_feed", :as => 'demo_feed'
 
   # See how all your routes lay out with "rake routes"
 

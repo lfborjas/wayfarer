@@ -15,6 +15,6 @@ class Wayfarer.Models.Feed extends Backbone.Model
         marker.info_window?.close()
         @highlighted = false
 
-class Wayfarer.Collections.TourCollection extends Backbone.Collection
+class Wayfarer.Collections.DemoCollection extends Backbone.Collection
     model: Wayfarer.Models.Feed
-    url: "http://pictour.us/lists/new-york-city/feed.json?callback=?"
+    url: "/feeds/demo.json"

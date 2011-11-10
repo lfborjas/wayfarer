@@ -11,12 +11,12 @@ $ ->
         el: $("#map")
         center:
             coords:
-                latitude: 40.714623
-                longitude: -74.006605
+                latitude: 39.57
+                longitude: -75.1
         controls:
             'TOP_LEFT': $("#gallery")
     )
-    feed = new Wayfarer.Collections.TourCollection
+    feed = new Wayfarer.Collections.DemoCollection
     markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map
         collection: feed
