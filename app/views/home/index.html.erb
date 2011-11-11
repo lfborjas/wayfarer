@@ -13,6 +13,8 @@
 <%= content_for :scripts do %>
   <script>
     Wayfarer.mode = "<%= @mode %>";
+    Wayfarer.item_icon = "<%= image_path 'item.png' %>";
+    Wayfarer.comment_icon = "<%= image_path 'comment.png' %>";
     Wayfarer.dimensions = {
        width: <%= @width %>
       ,height: <%= @height %>

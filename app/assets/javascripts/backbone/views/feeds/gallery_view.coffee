@@ -28,7 +28,6 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             height: Wayfarer.dimensions.height / 3
         )
         @gallery = Galleria.get(0)
-        @bind_markers()
 
         @gallery.bind 'loadfinish', (e)=>
             @collection.models[e.index].highlight()

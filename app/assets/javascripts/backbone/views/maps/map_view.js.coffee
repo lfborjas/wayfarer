@@ -42,11 +42,12 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
 
         if add_marker
             @add_marker(point)
-    add_marker : (model, visible = true) ->
+    add_marker : (model, visible = true, icon = null) ->
         model = model.attributes if model.attributes?
         marker = new google.maps.Marker(
           position : new google.maps.LatLng(model.lat, model.lng)
           map: @map
+          icon: icon && new google.maps.MarkerImage(icon, null, null, null, new google.maps.Size(40,40))
         )
         marker.setVisible visible
         @bounds.extend marker.position
