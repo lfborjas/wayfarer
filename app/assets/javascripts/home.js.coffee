@@ -4,6 +4,11 @@
 
 #This should be the point of entry for the entire map
 
+_.templateSettings =
+    interpolate: /\{\{(.+?)\}\}/g
+    evaluate: /\{%([\s\S]+?)%\}/g
+
+
 $ ->
     #TODO: the city should be a parameter
     #The feeds should be a list too
@@ -17,6 +22,7 @@ $ ->
             'TOP_LEFT': $("#gallery")
     )
     Wayfarer.map = map
+    Wayfarer.comment_template = _.template($("#comment-template").html())
     feed = new Wayfarer.Collections.DemoCollection
     markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map

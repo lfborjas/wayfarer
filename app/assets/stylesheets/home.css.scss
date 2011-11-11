@@ -6,7 +6,7 @@ body{
     padding: 0;
     width: 1265px;
     height: 800px;
-
+    font-family: Helvetica, Arial, "Trebuchet MS";
 }
 
 #map{
@@ -18,3 +18,9 @@ body{
     padding-top: 30px;
     padding-left: 30px;
 }
+
+.info-window{
+    width: 85px;
+    font-size: 0.7em;
+}
+

@@ -16,6 +16,7 @@ class Wayfarer.Models.Feed extends Backbone.Model
         marker.setVisible false
         @comments.each( (comment)->
             comment.marker.setVisible false
+            comment.marker.info_window.close()
         )
         marker.info_window?.close()
         @highlighted = false
