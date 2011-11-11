@@ -17,4 +17,4 @@ class Wayfarer.Models.Feed extends Backbone.Model
 
 class Wayfarer.Collections.DemoCollection extends Backbone.Collection
     model: Wayfarer.Models.Feed
-    url: "/feeds/demo.json"
+    url: "/demo/feed.json"

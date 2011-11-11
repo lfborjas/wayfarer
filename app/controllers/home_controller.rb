@@ -23,4 +23,10 @@ class HomeController < ApplicationController
       end
     end
   end
+
+  def demo_comments
+    respond_to do |format|
+     format.json {render :json => DemoFeed.comments.sample(4)} 
+    end
+  end
 end
