@@ -16,6 +16,6 @@ class Wayfarer.Views.Feeds.IndexView extends Backbone.View
                 @map.fit_bounds()
                 callback?.call null
 
-class Wayfarer.Views.Feeds.CommentView extends Wayfarer.Views.Feeds.IndexView
+class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView
     build_marker: (element)->
         @map.add_marker(element, true, Wayfarer.comment_icon)

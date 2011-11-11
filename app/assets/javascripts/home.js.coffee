@@ -16,6 +16,7 @@ $ ->
         controls:
             'TOP_LEFT': $("#gallery")
     )
+    Wayfarer.map = map
     feed = new Wayfarer.Collections.DemoCollection
     markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map
