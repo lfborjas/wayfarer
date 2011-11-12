@@ -21,6 +21,13 @@ class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView
         marker = @map.add_marker(element, true, element.get('avatar'))
         marker.info_window = new google.maps.InfoWindow(
             content: Wayfarer.comment_template(element.toJSON())
+            maxWidth: 300
+        )
+        google.maps.event.addListener(
+            marker,
+            'click',
+            () =>
+                marker.info_window.open(@map.map, marker)
         )
         marker.info_window.open(@map.map, marker)
         marker

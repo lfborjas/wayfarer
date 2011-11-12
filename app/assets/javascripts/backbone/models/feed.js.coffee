@@ -7,7 +7,6 @@ class Wayfarer.Models.Feed extends Backbone.Model
         Wayfarer.current_item?.dim()
         icon = @get('thumbnail_url')
         marker.setVisible true
-        marker.info_window?.open()
         @load_comments()
         Wayfarer.current_item = this
         @highlighted = true
@@ -18,7 +17,6 @@ class Wayfarer.Models.Feed extends Backbone.Model
             comment.marker.setVisible false
             comment.marker.info_window.close()
         )
-        marker.info_window?.close()
         @highlighted = false
     load_comments: ->
         (new Wayfarer.Views.Feeds.CommentsView(
