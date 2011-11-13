@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  layout 'home' 
   def index
     respond_to do |format|
       @mode = params[:mode] || 'full'
