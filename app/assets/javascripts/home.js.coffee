@@ -30,6 +30,7 @@ $ ->
     )
 
     if Wayfarer.mode and Wayfarer.mode is 'full'
+        Galleria.loadTheme('assets/galleria.classic.min.js') unless Galleria.theme
         gallery_view = new Wayfarer.Views.Feeds.GalleryView(
             el: $("#gallery")
             collection: feed
