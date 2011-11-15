@@ -15,8 +15,8 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             )
     gallery_data: ->
         @collection.map (model)->
-            image: model.get('image_url')
-            thumb: model.get('thumbnail_url')
+            image: "#{model.get('image_url')}?#{(new Date()).getTime()}"
+            thumb: "#{model.get('thumbnail_url')}?#{(new Date()).getTime()}"
             title: model.get('title')
             description: model.get('description')
             link: model.get('url')
