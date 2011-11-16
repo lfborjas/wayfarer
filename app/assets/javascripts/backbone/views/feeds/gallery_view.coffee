@@ -41,7 +41,7 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             link: model.get('url')
     make_pages: ->
         _(_(@collection.models).each_slice(4, (slice)-> slice.length and slice)).compact()
-    load_page: (index = 0) =>
+    page_at: (index = 0) =>
         return unless @pages[index]?
         @current_page = index
         @$('#thumbnails-list ul').empty()
@@ -49,13 +49,13 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             @$('#thumbnails-list ul').append(
                 @thumbnail_template(element.toJSON())
             )
-    previous_page: -> @load_page(@current_page - 1)
-    next_page: -> @load_page(@current_page + 1)
+    previous_page: -> @page_at(@current_page - 1)
+    next_page: -> @page_at(@current_page + 1)
     render: ->
         self = this
         @pages = @make_pages()
         @el.html(
             $("#gallery-template").html()
         )
-        @load_page(0)
+        @page_at(0)
         @item_at(0)
