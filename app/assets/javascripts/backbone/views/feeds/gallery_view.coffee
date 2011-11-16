@@ -5,9 +5,19 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         super(options)
         @collection = options.collection
         @thumbnail_template = _.template($("#gallery_thumbnail-template").html())
+        @content_templates = {}
+        _(['photo']).each (content_type)=>
+            @content_templates[content_type] = _.template($("#gallery_#{content_type}-template").html())
     events:
         "click #previous-page": "previous_page"
         "click #next-page": "next_page"
+        "click .thumbnail": "load_item"
+    load_item: (e)->
+        target = $(e.target)
+        thumbnail = if target.is('.thumbnail') then target else target.closest('.thumbnail')
+        @$("#stage").html(
+            @content_templates[thumbnail.data('type')](@collection.getByCid(thumbnail.data('id')).toJSON())
+        )
     gallery_data: ->
         @collection.map (model)->
             image: "#{model.get('image_url')}?#{(new Date()).getTime()}"

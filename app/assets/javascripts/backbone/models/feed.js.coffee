@@ -2,6 +2,8 @@ class Wayfarer.Models.Feed extends Backbone.Model
     initialize: ->
         @comments = new Wayfarer.Collections.CommentCollection
         @comments.url = @get('comments_url')
+    toJSON: ->
+        _(Backbone.Model.prototype.toJSON.apply(this)).extend({id: @cid})
     highlight: ->
         marker = @marker || {}
         Wayfarer.current_item?.dim()
