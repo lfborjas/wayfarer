@@ -12,12 +12,26 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         "click #previous-page": "previous_page"
         "click #next-page": "next_page"
         "click .thumbnail": "load_item"
-    load_item: (e)->
-        target = $(e.target)
-        thumbnail = if target.is('.thumbnail') then target else target.closest('.thumbnail')
+        "click #next-item": "next_item"
+        "click #previous-item": "previous_item"
+    load_item: (event_or_model)->
+        model = null
+        unless event_or_model instanceof Backbone.Model
+            target = $(event_or_model.target)
+            thumbnail = if target.is('.thumbnail') then target else target.closest('.thumbnail')
+            model = @collection.getByCid(thumbnail.data('id'))
+        else
+            model = event_or_model
         @$("#stage").html(
-            @content_templates[thumbnail.data('type')](@collection.getByCid(thumbnail.data('id')).toJSON())
+            @content_templates[model.get('media_type')](model.toJSON())
         )
+    item_at: (index)->
+        item = null
+        return unless (item = @collection.at(index))
+        @current_item = index
+        @load_item item
+    next_item: -> @item_at(@current_item + 1)
+    previous_item: -> @item_at(@current_item - 1)
     gallery_data: ->
         @collection.map (model)->
             image: "#{model.get('image_url')}?#{(new Date()).getTime()}"
@@ -44,3 +58,4 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             $("#gallery-template").html()
         )
         @load_page(0)
+        @item_at(0)
