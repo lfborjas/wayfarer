@@ -4,15 +4,10 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
     constructor: (options)->
         super(options)
         @collection = options.collection
-    bind_markers: ->
-        @collection.each (model, index)=>
-            google.maps.event.addListener(
-                model.marker,
-                'click',
-                () =>
-                    @gallery.show index
-                    model.highlight()
-            )
+        @thumbnail_template = _.template($("#gallery_thumbnail-template").html())
+    events:
+        "click #previous-page": "previous_page"
+        "click #next-page": "next_page"
     gallery_data: ->
         @collection.map (model)->
             image: "#{model.get('image_url')}?#{(new Date()).getTime()}"
@@ -20,14 +15,22 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             title: model.get('title')
             description: model.get('description')
             link: model.get('url')
+    make_pages: ->
+        _(_(@collection.models).each_slice(4, (slice)-> slice.length and slice)).compact()
+    load_page: (index = 0) =>
+        return unless @pages[index]?
+        @current_page = index
+        @$('#thumbnails-list ul').empty()
+        _(@pages[index]).each (element) =>
+            @$('#thumbnails-list ul').append(
+                @thumbnail_template(element.toJSON())
+            )
+    previous_page: -> @load_page(@current_page - 1)
+    next_page: -> @load_page(@current_page + 1)
     render: ->
         self = this
-        @el.galleria(
-            data_source: self.gallery_data()
-            width: Wayfarer.dimensions.width / 3
-            height: Wayfarer.dimensions.height / 3
+        @pages = @make_pages()
+        @el.html(
+            $("#gallery-template").html()
         )
-        @gallery = Galleria.get(0)
-
-        @gallery.bind 'loadfinish', (e)=>
-            @collection.models[e.index].highlight()
+        @load_page(0)
