@@ -23,11 +23,11 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         else
             model = event_or_model
 
-        @$(".current-thumbnail").removeClass("current-thumbnail")
-        @$("#thumbnail_#{model.cid}").addClass("current-thumbnail")
-
         if @current_page isnt model.page
             @page_at model.page
+
+        @$(".current-thumbnail").removeClass("current-thumbnail")
+        @$("#thumbnail_#{model.cid}").addClass("current-thumbnail")
 
         @current_item = @collection.indexOf(model)
 
