@@ -22,6 +22,8 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             model = @collection.getByCid(thumbnail.data('id'))
         else
             model = event_or_model
+        if @current_page isnt model.page
+            @page_at model.page
         @$("#stage").html(
             @content_templates[model.get('media_type')](model.toJSON())
         )
@@ -40,7 +42,13 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             description: model.get('description')
             link: model.get('url')
     make_pages: ->
-        _(_(@collection.models).each_slice(4, (slice)-> slice.length and slice)).compact()
+        page = 0
+        _(_(@collection.models).each_slice(4, (slice)->
+            if slice.length
+                _(slice).map((e) -> e.page = page)
+                page += 1
+                slice
+        )).compact()
     page_at: (index = 0) =>
         return unless @pages[index]?
         @current_page = index
@@ -52,7 +60,6 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
     previous_page: -> @page_at(@current_page - 1)
     next_page: -> @page_at(@current_page + 1)
     render: ->
-        self = this
         @pages = @make_pages()
         @el.html(
             $("#gallery-template").html()

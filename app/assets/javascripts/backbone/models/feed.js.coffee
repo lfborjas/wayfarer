@@ -1,6 +1,7 @@
 class Wayfarer.Models.Feed extends Backbone.Model
     initialize: ->
         @comments = new Wayfarer.Collections.CommentCollection
+        @set(media_type: @get('post_type')) if @get('post_type')?
         @comments.url = @get('comments_url')
     toJSON: ->
         _(Backbone.Model.prototype.toJSON.apply(this)).extend({id: @cid})
