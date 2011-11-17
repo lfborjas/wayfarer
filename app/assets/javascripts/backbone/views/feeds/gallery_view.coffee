@@ -22,15 +22,21 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
             model = @collection.getByCid(thumbnail.data('id'))
         else
             model = event_or_model
+
+        @$(".current-thumbnail").removeClass("current-thumbnail")
+        @$("#thumbnail_#{model.cid}").addClass("current-thumbnail")
+
         if @current_page isnt model.page
             @page_at model.page
+
+        @current_item = @collection.indexOf(model)
+
         @$("#stage").html(
             @content_templates[model.get('media_type')](model.toJSON())
         )
     item_at: (index)->
         item = null
         return unless (item = @collection.at(index))
-        @current_item = index
         @load_item item
     next_item: -> @item_at(@current_item + 1)
     previous_item: -> @item_at(@current_item - 1)
