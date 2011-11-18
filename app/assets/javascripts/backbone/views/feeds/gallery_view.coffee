@@ -6,7 +6,7 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         @collection = options.collection
         @thumbnail_template = _.template($("#gallery_thumbnail-template").html())
         @content_templates = {}
-        _(['photo']).each (content_type)=>
+        _(['photo', 'video']).each (content_type)=>
             @content_templates[content_type] = _.template($("#gallery_#{content_type}-template").html())
     events:
         "click #previous-page": "previous_page"

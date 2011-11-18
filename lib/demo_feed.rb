@@ -24,12 +24,12 @@ module DemoFeed
         lng: -75.149722
       },
       {
-        url: "http://en.wikipedia.org/wiki/Arch_Street_Friends_Meeting_House",
-        image_url: "/assets/medium/320px-WTP_C01_AMP_1.jpg",
-        title: "Arch Street Friends Meeting House",
-        description: "Built by noted Federal period architect Owen Biddle. In continuous use since 1805. The largest Quaker meeting house in the country.",
-        thumbnail_url: "/assets/thumb/100px-WTP_C01_AMP_1.jpg",
-        media_type: "photo" ,
+        url: "http://www.youtube.com/embed/4z2DtNW79sQ",
+        image_url: nil,
+        title: "Streets of Philadelphia",
+        description: "Music video by Bruce Springsteen performing Streets Of Philadelphia. (C) 1993 Bruce Springsteen",
+        thumbnail_url: "http://i1.ytimg.com/vi/4z2DtNW79sQ/hqdefault.jpg",
+        media_type: "video" ,
         comments_url: "/demo/comments.json",
         lat: 39.951944,
         lng: -75.147222
