@@ -10,7 +10,8 @@ class Wayfarer.Models.Feed extends Backbone.Model
         Wayfarer.current_item?.dim()
         icon = @get('thumbnail_url')
         marker.setVisible true
-        @load_comments()
+        @load_comments(->Wayfarer.map.map.setCenter(marker.getPosition()))
+        #Wayfarer.map.map.panBy(0, 350)
         Wayfarer.current_item = this
         @highlighted = true
     dim: ->
@@ -21,11 +22,11 @@ class Wayfarer.Models.Feed extends Backbone.Model
             comment.marker.info_window.close()
         )
         @highlighted = false
-    load_comments: ->
+    load_comments: (callback)->
         (new Wayfarer.Views.Feeds.CommentsView(
             map: Wayfarer.map
             collection: @comments
-        )).render()
+        )).render(callback)
 
 class Wayfarer.Models.Comment extends Backbone.Model
     initialize:->
