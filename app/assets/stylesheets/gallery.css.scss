@@ -1,0 +1,109 @@
+$photo_width: 501px;
+$photo_height: 292px;
+
+#gallery{
+    background: url(diagonal_dark.png);
+    margin-top: 30px;
+    margin-left: 30px;
+    padding: 5px;
+    -webkit-box-shadow: 3px 3px 2px 2px #666;
+    -moz-box-shadow: 3px 3px 2px 2px #666;
+    box-shadow: 3px 3px 2px 2px #666;
+}
+
+#stage{
+    width: $photo_width;
+    height: $photo_height;
+}
+
+#next-item, #previous-item, #next-page, #previous-page{
+    cursor: pointer;
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    top: 0px;
+    opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.right-nav{
+    right: 0;
+}
+
+.left-nav{
+    left: 0;
+}
+
+#next-item{
+    background: url(right-arrow-top.png) no-repeat 100% 40%;
+}
+
+#previous-item{
+    background: url(left-arrow-top.png) no-repeat 0% 40%;
+}
+
+#previous-page, #next-page{
+    top: 20px;
+    height: 39px;
+}
+
+#previous-page{
+    background: url(left-arrow-bottom.png) no-repeat 0% 50%;
+}
+
+#next-page{
+    background: url(right-arrow-bottom.png) no-repeat 100% 50%;
+}
+
+.thumbnail{
+    opacity: 0.5;
+    float: left;
+    margin-left: 5px;
+}
+
+.thumbnail img{
+    width: 124px;
+    height: 73px;
+}
+
+.thumbnail-title{
+    color: #0e8fb6;
+    width: 100px;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+}
+
+#photo-container{
+    display: table-cell; vertical-align: middle;
+    text-align: center;
+    width: $photo_width;
+    height: $photo_height;
+}
+
+.photo{
+    max-width: $photo_width;
+    max-height: $photo_height;
+    margin: 0 auto;
+}
+
+.current-thumbnail{
+    opacity: 1.0;
+}
+
+#thumbnails-list ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#thumbnails-list{
+    background: url(diagonal_darker.png);
+    border-top: 1px solid #0e8fb6;
+    padding-top: 5px;
+    position: relative;
+    bottom: 0;
+}

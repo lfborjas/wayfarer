@@ -1,13 +1,17 @@
 class Wayfarer.Models.Feed extends Backbone.Model
     initialize: ->
         @comments = new Wayfarer.Collections.CommentCollection
+        @set(media_type: @get('post_type')) if @get('post_type')?
         @comments.url = @get('comments_url')
+    toJSON: ->
+        _(Backbone.Model.prototype.toJSON.apply(this)).extend({id: @cid})
     highlight: ->
         marker = @marker || {}
         Wayfarer.current_item?.dim()
         icon = @get('thumbnail_url')
         marker.setVisible true
-        @load_comments()
+        @load_comments(->Wayfarer.map.map.setCenter(marker.getPosition()))
+        #Wayfarer.map.map.panBy(0, 350)
         Wayfarer.current_item = this
         @highlighted = true
     dim: ->
@@ -18,11 +22,11 @@ class Wayfarer.Models.Feed extends Backbone.Model
             comment.marker.info_window.close()
         )
         @highlighted = false
-    load_comments: ->
+    load_comments: (callback)->
         (new Wayfarer.Views.Feeds.CommentsView(
             map: Wayfarer.map
             collection: @comments
-        )).render()
+        )).render(callback)
 
 class Wayfarer.Models.Comment extends Backbone.Model
     initialize:->

@@ -8,6 +8,14 @@ _.templateSettings =
     interpolate: /\{\{(.+?)\}\}/g
     evaluate: /\{%([\s\S]+?)%\}/g
 
+_.mixin(
+    each_slice: (obj, slice_size, iterator, context)->
+        collection = obj.map (item)-> item
+        if typeof collection.slice isnt 'undefined'
+            for i in [0 .. Math.ceil(collection.length/slice_size)]
+                iterator.call(context, _(collection).slice(i * slice_size, (i * slice_size) + slice_size), obj)
+)
+
 
 $ ->
     #TODO: the city should be a parameter
