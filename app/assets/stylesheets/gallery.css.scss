@@ -23,6 +23,10 @@ $photo_height: 292px;
     height: 100%;
     top: 0px;
     opacity: 0.5;
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .right-nav{
@@ -57,12 +61,12 @@ $photo_height: 292px;
 .thumbnail{
     opacity: 0.5;
     float: left;
-    margin-left: 2.5px;
+    margin-left: 5px;
 }
 
 .thumbnail img{
     width: 124px;
-    height: 77px;
+    height: 73px;
 }
 
 #photo-container{
@@ -89,8 +93,9 @@ $photo_height: 292px;
 }
 
 #thumbnails-list{
+    background: url(diagonal_darker.png);
     border-top: 1px solid #0e8fb6;
-    padding-top: 2.5px;
+    padding-top: 5px;
     position: relative;
     bottom: 0;
 }
