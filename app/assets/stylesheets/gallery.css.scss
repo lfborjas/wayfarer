@@ -16,6 +16,21 @@ $photo_height: 292px;
     height: $photo_height;
 }
 
+$description_height: $photo_height / 3;
+
+#item-description{
+    margin-top: -$description_height;
+    width: $photo_width;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    background-color: black;
+    color: white;
+}
+
+#item-description .info{
+    color: #b9a074;
+}
+
 #next-item, #previous-item, #next-page, #previous-page{
     cursor: pointer;
     position: absolute;

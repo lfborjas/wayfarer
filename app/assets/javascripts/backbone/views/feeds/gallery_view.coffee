@@ -5,6 +5,7 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         super(options)
         @collection = options.collection
         @thumbnail_template = _.template($("#gallery_thumbnail-template").html())
+        @info_template = _.template($("#gallery_description-template").html())
         @content_templates = {}
         _(['photo', 'video']).each (content_type)=>
             @content_templates[content_type] = _.template($("#gallery_#{content_type}-template").html())
@@ -35,6 +36,9 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
 
         @$("#stage").html(
             @content_templates[model.get('media_type')](model.toJSON())
+        )
+        @$("#item-description").html(
+            @info_template(model.toJSON())
         )
     item_at: (index)->
         item = null

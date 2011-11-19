@@ -10,7 +10,8 @@ module DemoFeed
         media_type: "photo",
         comments_url: "/demo/comments.json",
         lat: 39.948056 ,
-        lng: -75.165
+        lng: -75.165,
+        channels: [{id: 1, name: "History"}]
       },
       {
         url: "http://en.wikipedia.org/wiki/American_Philosophical_Society_Hall" ,
@@ -21,6 +22,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.948889,
+        channels: [],
         lng: -75.149722
       },
       {
@@ -32,7 +34,8 @@ module DemoFeed
         media_type: "video" ,
         comments_url: "/demo/comments.json",
         lat: 39.951944,
-        lng: -75.147222
+        lng: -75.147222,
+        channels: [{id: 2, name: "Music"}, {id: 3, name: "Awesomeness"}]
       },
       {
         url: "http://en.wikipedia.org/wiki/Athenaeum_of_Philadelphia",
@@ -43,6 +46,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.946667,
+        channels: [],
         lng: -75.151667 
       },
       {
@@ -54,6 +58,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.94805,
+        channels: [],
         lng: -75.147222
       },
       {
@@ -65,6 +70,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.946944,
+        channels: [],
         lng: -75.176667
       },
       {
@@ -76,6 +82,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.952778,
+        channels: [],
         lng:  -75.1425
       },
       {
@@ -87,6 +94,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.948056,
+        channels: [],
         lng: -75.146389 
       },
       {
@@ -98,6 +106,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.954444,
+        channels: [],
         lng: -75.167222
       },
       {
@@ -109,6 +118,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.947222,
+        channels: [],
         lng: -75.146111
       },
       {
@@ -120,6 +130,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.944722,
+        channels: [],
         lng: -75.155833
       },
       {
@@ -131,6 +142,7 @@ module DemoFeed
         media_type: "photo" ,
         comments_url: "/demo/comments.json",
         lat: 39.953611,
+        channels: [],
         lng: -75.162778
       }
     ]
