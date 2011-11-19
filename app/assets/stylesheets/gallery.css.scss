@@ -12,6 +12,10 @@ $photo_height: 292px;
     width: $photo_width + 20;
 }
 
+#stage-wrapper{
+    position: relative;
+}
+
 #stage{
     width: $photo_width;
     height: $photo_height;
@@ -36,14 +40,21 @@ $description_height: $photo_height / 3;
     }
 }
 
-#close-description{
+#close-description, #show-description{
     position: absolute;
-    top: 0;
     right: 0;
     background: url(close.png) no-repeat;
     width: 28px;
     height: 28px;
     z-index: 3;
+}
+
+#close-description{
+    top: 0;
+}
+
+#show-description{
+    bottom: 0;
 }
 
 #item-description .info{

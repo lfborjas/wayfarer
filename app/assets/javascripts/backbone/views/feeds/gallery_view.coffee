@@ -15,6 +15,14 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         "click .thumbnail": "load_item"
         "click #next-item": "next_item"
         "click #previous-item": "previous_item"
+        "click #close-description": "hide_description"
+        "click #show-description": "show_description"
+    hide_description: ->
+        @$("#item-description").hide()
+        @$("#show-description").show()
+    show_description: ->
+        @$("#item-description").show()
+        @$("#show-description").hide()
     load_item: (event_or_model)->
         model = null
         unless event_or_model instanceof Backbone.Model
@@ -78,3 +86,4 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         )
         @page_at(0)
         @item_at(0)
+        @$("#show-description").hide()
