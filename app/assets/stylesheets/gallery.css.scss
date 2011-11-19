@@ -9,6 +9,7 @@ $photo_height: 292px;
     -webkit-box-shadow: 3px 3px 2px 2px #666;
     -moz-box-shadow: 3px 3px 2px 2px #666;
     box-shadow: 3px 3px 2px 2px #666;
+    width: $photo_width + 20;
 }
 
 #stage{
@@ -19,12 +20,18 @@ $photo_height: 292px;
 $description_height: $photo_height / 3;
 
 #item-description{
+    margin: 0;
     margin-top: -$description_height;
-    width: $photo_width;
+    height: $description_height;
+    width: 100%;
     opacity: 0.5;
     filter: alpha(opacity=50);
     background-color: black;
     color: white;
+    font-size: 0.8em;
+    h2{
+        font-size: 1em;
+    }
 }
 
 #item-description .info{
@@ -53,11 +60,11 @@ $description_height: $photo_height / 3;
 }
 
 #next-item{
-    background: url(right-arrow-top.png) no-repeat 100% 40%;
+    background: url(right-arrow-top.png) no-repeat 100% 37%;
 }
 
 #previous-item{
-    background: url(left-arrow-top.png) no-repeat 0% 40%;
+    background: url(left-arrow-top.png) no-repeat 0% 37%;
 }
 
 #previous-page, #next-page{
