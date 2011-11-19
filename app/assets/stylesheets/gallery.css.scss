@@ -21,6 +21,8 @@ $description_height: $photo_height / 3;
 
 #item-description{
     margin: 0;
+    position: relative;
+    bottom: 0;
     margin-top: -$description_height;
     height: $description_height;
     width: 100%;
@@ -32,6 +34,16 @@ $description_height: $photo_height / 3;
     h2{
         font-size: 1em;
     }
+}
+
+#close-description{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: url(close.png) no-repeat;
+    width: 28px;
+    height: 28px;
+    z-index: 3;
 }
 
 #item-description .info{
@@ -49,6 +61,11 @@ $description_height: $photo_height / 3;
     &:hover {
         opacity: 1;
     }
+}
+
+#next-item, #previous-item{
+    height: 72px;
+    top: 31%;
 }
 
 .right-nav{
