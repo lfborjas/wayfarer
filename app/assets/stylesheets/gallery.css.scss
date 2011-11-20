@@ -43,7 +43,6 @@ $description_height: $photo_height / 3;
 #close-description, #show-description{
     position: absolute;
     right: 0;
-    background: url(close.png) no-repeat;
     width: 28px;
     height: 28px;
     z-index: 3;
@@ -51,10 +50,12 @@ $description_height: $photo_height / 3;
 
 #close-description{
     top: 0;
+    background: url(close.png) no-repeat;
 }
 
 #show-description{
     bottom: 0;
+    background: url(info.png) no-repeat;
 }
 
 #item-description .info{
