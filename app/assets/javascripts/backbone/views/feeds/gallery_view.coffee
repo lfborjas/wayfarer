@@ -7,7 +7,7 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         @thumbnail_template = _.template($("#gallery_thumbnail-template").html())
         @info_template = _.template($("#gallery_description-template").html())
         @content_templates = {}
-        _(['photo', 'video']).each (content_type)=>
+        _(['photo', 'video', 'pictour']).each (content_type)=>
             @content_templates[content_type] = _.template($("#gallery_#{content_type}-template").html())
     events:
         "click #previous-page": "previous_page"
@@ -41,7 +41,6 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         @current_item = @collection.indexOf(model)
 
         model.highlight()
-
         @$("#stage").html(
             @content_templates[model.get('media_type')](model.toJSON())
         )

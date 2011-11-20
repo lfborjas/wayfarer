@@ -3,8 +3,14 @@ class Wayfarer.Models.Feed extends Backbone.Model
         @comments = new Wayfarer.Collections.CommentCollection
         @set(media_type: @get('post_type')) if @get('post_type')?
         @comments.url = @get('comments_url')
+        if @get('media_type') is 'pictour'
+            @photos = new Wayfarer.Collections.PhotoCollection
+            @photos.url = "#{ @get('url') }.json?callback=?"
+            @photos.fetch()
     toJSON: ->
-        _(Backbone.Model.prototype.toJSON.apply(this)).extend({id: @cid})
+        _(Backbone.Model.prototype.toJSON.apply(this)).extend(
+            unless @get('media_type') is 'pictour' then {id: @cid} else {id: @cid, photos: @photos.toJSON()}
+        )
     highlight: ->
         marker = @marker || {}
         Wayfarer.current_item?.dim()
@@ -48,3 +54,12 @@ class Wayfarer.Collections.DemoCollection extends Backbone.Collection
 
 class Wayfarer.Collections.CommentCollection extends Backbone.Collection
     model: Wayfarer.Models.Comment
+
+class Wayfarer.Models.Photo extends Backbone.Model
+    initialize:->
+        @thumbnail_url = @get('thumb_url')
+
+class Wayfarer.Collections.PhotoCollection extends Backbone.Collection
+    model: Wayfarer.Models.Photo
+    parse: (response)->
+        response.tour.things
