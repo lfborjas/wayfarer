@@ -14,12 +14,12 @@ module DemoFeed
         channels: [{id: 1, name: "History"}]
       },
       {
-        url: "http://en.wikipedia.org/wiki/American_Philosophical_Society_Hall" ,
-        image_url: "/assets/medium/295px-AmericanPhilosophicalSociety.png",
-        title: "American Philosophical Society Hall",
-        description: "Society founded 1743 by Benjamin Franklin. Building erected 1768. Early members included George Washington, John Adams, and Thomas Jefferson.",
-        thumbnail_url: "/assets/thumb/100px-AmericanPhilosophicalSociety.png" ,
-        media_type: "photo" ,
+        url: "http://pictour.us/tours/e0a3d4" ,
+        image_url: nil,
+        title: "A walk through Williamsburg",
+        description: "Williamsburg is a neighborhood in the New York City borough of Brooklyn. \r\nA lot of street art can be spotted, graffiti, paste ups and stencil art from known artists like ROA, The Dude Company, Cope, A.S.V.P, Faile, Quel Beast and many others.",
+        thumbnail_url: "http://pictour.us/p/903/t" ,
+        media_type: "pictour" ,
         comments_url: "/demo/comments.json",
         lat: 39.948889,
         channels: [],
