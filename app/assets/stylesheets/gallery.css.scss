@@ -19,6 +19,7 @@ $photo_height: 292px;
 #stage{
     width: $photo_width;
     height: $photo_height;
+    margin: 0 auto;
 }
 
 $description_height: $photo_height / 3;
