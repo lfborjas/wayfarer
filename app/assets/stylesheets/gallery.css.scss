@@ -19,6 +19,7 @@ $photo_height: 292px;
 #stage{
     width: $photo_width;
     height: $photo_height;
+    margin: 0 auto;
 }
 
 $description_height: $photo_height / 3;
@@ -157,4 +158,33 @@ $description_height: $photo_height / 3;
     padding-top: 5px;
     position: relative;
     bottom: 0;
+}
+
+#pictour-info{
+    float: left;
+}
+
+#pictour-photos{
+    list-style-type: none;
+    height: 206px;
+    width: $photo_width / 2;
+    overflow: auto;
+    li{
+        float: left;
+        padding-left: 2.5px;
+    }
+    &::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(255,255,255,0.5);
+    }
+
 }
