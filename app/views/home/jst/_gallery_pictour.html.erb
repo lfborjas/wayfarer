@@ -1,11 +1,13 @@
 <div id="pictour-container">
+  <h2>{{ title  }}</h2>
   <div id="pictour-info">
-    <h2>{{ title  }}</h2>
     <ul id="pictour-photos">
       {% for(var i = 0; i < photos.length; i++){ %}
         <li class="pictour-thumbnail"><img src="{{ photos[i].mini_thumb_url  }}" /></li>
       {% } %}
     </ul>
   </div>
-  <div></div>
+  <div id="pictour-details">
+    <img src="{{ image_url }}"></img>
+  </div>
 </div>
