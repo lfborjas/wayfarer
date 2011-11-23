@@ -22,6 +22,10 @@ $photo_height: 292px;
     margin: 0 auto;
 }
 
+.loading{
+    background: url(loader.gif) no-repeat center center;
+}
+
 $description_height: $photo_height / 3;
 
 #item-description{

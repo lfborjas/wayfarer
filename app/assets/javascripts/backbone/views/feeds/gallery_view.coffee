@@ -41,9 +41,12 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         @current_item = @collection.indexOf(model)
 
         model.highlight()
-        @$("#stage").html(
+        stage = @$("#stage")
+        stage.addClass("loading")
+        stage.html(
             @content_templates[model.get('media_type')](model.toJSON())
-        )
+        ).fadeIn()
+        stage.removeClass("loading")
         @$("#item-description").html(
             @info_template(model.toJSON())
         )
