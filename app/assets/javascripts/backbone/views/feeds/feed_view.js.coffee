@@ -22,6 +22,7 @@ class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView
         marker.info_window = new google.maps.InfoWindow(
             content: Wayfarer.comment_template(element.toJSON())
             maxWidth: 300
+            disableAutoPan: true
         )
         google.maps.event.addListener(
             marker,
