@@ -3,7 +3,11 @@
   <div id="pictour-info">
     <ul id="pictour-photos">
       {% for(var i = 0; i < photos.length; i++){ %}
-        <li class="pictour-thumbnail"><img src="{{ photos[i].mini_thumb_url  }}" /></li>
+      <li class="pictour-thumbnail">
+        <a href="{{ photos[i].tour_url }}" target="_blank">
+          <img src="{{ photos[i].mini_thumb_url  }}" />
+        </a>
+     </li>
       {% } %}
     </ul>
   </div>
