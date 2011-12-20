@@ -50,6 +50,9 @@ class Wayfarer.Views.Feeds.GalleryView extends Backbone.View
         @$("#item-description").html(
             @info_template(model.toJSON())
         )
+        @show_description()
+        window.setTimeout @hide_description, 3000
+
     item_at: (index)->
         item = null
         return unless (item = @collection.at(index))
