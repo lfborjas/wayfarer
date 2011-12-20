@@ -26,7 +26,7 @@ module DemoFeed
         lng: -75.149722
       },
       {
-        url: "http://www.youtube.com/embed/4z2DtNW79sQ",
+        url: "http://www.youtube.com/v/4z2DtNW79sQ?version=3&amp;hl=en_US",
         image_url: nil,
         title: "Streets of Philadelphia",
         description: "Music video by Bruce Springsteen performing Streets Of Philadelphia. (C) 1993 Bruce Springsteen",
