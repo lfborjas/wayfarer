@@ -16,8 +16,10 @@ class Wayfarer.Models.Feed extends Backbone.Model
         Wayfarer.current_item?.dim()
         icon = @get('thumbnail_url')
         marker.setVisible true
-        @load_comments(->Wayfarer.map.map.setCenter(marker.getPosition()))
-        #Wayfarer.map.map.panBy(0, 350)
+        @load_comments(->
+            Wayfarer.map.map.setCenter(marker.getPosition())
+            Wayfarer.map.map.panBy(- Wayfarer.gallery_width/2 , 0)
+        )
         Wayfarer.current_item = this
         @highlighted = true
     dim: ->

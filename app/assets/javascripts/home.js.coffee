@@ -31,6 +31,8 @@ $ ->
     )
     Wayfarer.map = map
     Wayfarer.comment_template = _.template($("#comment-template").html())
+    Wayfarer.gallery_width = $("#gallery").width()
+
     feed = new Wayfarer.Collections.DemoCollection
     markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map
@@ -38,7 +40,6 @@ $ ->
     )
 
     if Wayfarer.mode and Wayfarer.mode is 'full'
-        Galleria.loadTheme('assets/galleria.classic.min.js') unless Galleria.theme
         gallery_view = new Wayfarer.Views.Feeds.GalleryView(
             el: $("#gallery")
             collection: feed
