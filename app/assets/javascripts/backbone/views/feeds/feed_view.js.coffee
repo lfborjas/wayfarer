@@ -13,7 +13,8 @@ class Wayfarer.Views.Feeds.IndexView extends Backbone.View
             success:(collection)=>
                 collection.each (element)=>
                     element.marker = @build_marker(element)
-                @map.fit_bounds()
+                unless collection.isEmpty()
+                    @map.fit_bounds()
                 callback?.call null
 
 class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView

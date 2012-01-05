@@ -15,7 +15,7 @@ class Wayfarer.Models.Feed extends Backbone.Model
 
         #Fix zeroed points
         if (@get('lat') is 0) or (@get('lng') is 0)
-            @set(Wayfarer.map.random_point())
+            @set(Wayfarer.map.random_point(Wayfarer.philly_bounds))
 
         @comments.url = "#{@get('comments_url') or @get('comments')}&callback=?"
         if @get('media_type') is 'pictour'
@@ -54,6 +54,13 @@ class Wayfarer.Models.Feed extends Backbone.Model
 
 class Wayfarer.Models.Comment extends Backbone.Model
     initialize:->
+        @set(avatar: "http://pictour.us/photos/thumb/missing.png")
+        unless @get('lng')
+            @set(lng: @get('long'))
+
+        #Fix zeroed points
+        if (@get('lat') is 0) or (@get('lng') is 0)
+            @set(Wayfarer.map.random_point_around(Wayfarer.map.map.getCenter()))
         @default_icon = new google.maps.MarkerImage(Wayfarer.comment_icon, null, null, null, new google.maps.Size(40,40))
         @selected_icon = new google.maps.MarkerImage(@get('avatar'), null, null, null, new google.maps.Size(40,40))
     highlight: ->
