@@ -4,7 +4,7 @@
     <ul id="pictour-photos">
       {% for(var i = 0; i < photos.length; i++){ %}
       <li class="pictour-thumbnail">
-        <a href="{{ photos[i].tour_url }}" target="_blank">
+        <a href="{{ url }}" target="_blank">
           <img src="{{ photos[i].mini_thumb_url  }}" />
         </a>
      </li>
@@ -12,7 +12,7 @@
     </ul>
   </div>
   <div id="pictour-details">
-    <a target="_parent" href="http://dev.phillyinfocus.com/pictour/test-pictour/"><img src="{{ image_url }}"></img></a>
-    <a target="_parent" href="http://dev.phillyinfocus.com/pictour/test-pictour/">View Pictour</a>
+    <a target="_parent" href="{{ url }}"><img src="{{ image_url }}"></img></a>
+    <a target="_parent" href="{{ url }}">View Pictour</a>
   </div>
 </div>
