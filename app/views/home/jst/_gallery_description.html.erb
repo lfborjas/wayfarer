@@ -3,8 +3,9 @@
   <p> {{ description }} </p>
   <a href="#" id="close-description"></a>
 </div>
-  <p> {% if(channels[0]){  %} Found in: {% } %} <span class="info"> {{ (channels[0] || {} ).name }}
+<p> {% if(channels[0]){  %} Found in: {% } %} <span class="info"> 
+    <a href="{{(channels[0]||{}).url}}">{{ (channels[0] || {} ).name }}</a>
     {% for(var i = 1; i < channels.length; i++){ %}
-        , {{ channels[i].name }}
+    , <a href="{{channels[i].url}}">{{ channels[i].name }}</a> 
     {% } %}
   </span></p>

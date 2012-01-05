@@ -17,6 +17,11 @@ _.mixin(
 )
 
 
+$.ajaxSetup(
+    username: "root"
+    password: "ph1lly!"
+)
+
 $ ->
     #TODO: the city should be a parameter
     #The feeds should be a list too
@@ -32,8 +37,14 @@ $ ->
     Wayfarer.map = map
     Wayfarer.comment_template = _.template($("#comment-template").html())
     Wayfarer.gallery_width = $("#gallery").width()
+    Wayfarer.philly_bounds = new google.maps.LatLngBounds(
+        new google.maps.LatLng(39.93572759748179, -75.19707340240478),
+        new google.maps.LatLng(39.96204732203117, -75.14278549194336)
+    )
 
-    feed = new Wayfarer.Collections.DemoCollection
+    feed = new Wayfarer.Collections.FeedCollection
+    feed.url = "http://root:ph1lly!@dev.phillyinfocus.com/content-data/?callback=?&"+$.param(Wayfarer.config)
+
     markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map
         collection: feed
