@@ -29,7 +29,7 @@ class Wayfarer.Models.Feed extends Backbone.Model
             @photos.fetch()
     toJSON: ->
         _(Backbone.Model.prototype.toJSON.apply(this)).extend(
-            unless @get('media_type') is 'pictour' then {id: @cid} else {id: @cid, photos: @photos.toJSON()}
+            unless @get('media_type') is 'pictour' then {id: @cid} else {id: @cid, photos: @photos.toJSON(), static_map:@photos.static_map()}
         )
     highlight: ->
         marker = @marker || {}
@@ -91,5 +91,8 @@ class Wayfarer.Models.Photo extends Backbone.Model
 
 class Wayfarer.Collections.PhotoCollection extends Backbone.Collection
     model: Wayfarer.Models.Photo
+    static_map: ->
+        path = encodeURIComponent(@map((photo)->"#{photo.get('latitude')},#{photo.get('longitude')}").join("|"))
+        "http://maps.google.com/maps/api/staticmap?size=200x200&sensor=false&path=#{path}"
     parse: (response)->
         response.tour.things
