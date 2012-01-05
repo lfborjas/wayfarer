@@ -1,6 +1,10 @@
 $photo_width: 501px;
 $photo_height: 292px;
 
+#stage iframe{
+    margin-left: 22px;
+}
+
 #gallery{
     background: url(diagonal_dark.png);
     margin-top: 15px;
@@ -63,7 +67,7 @@ $description_height: $photo_height / 3;
     background: url(info.png) no-repeat;
 }
 
-#item-description .info{
+#item-description .info, .info a{
     color: #b9a074;
 }
 

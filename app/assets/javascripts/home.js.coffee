@@ -39,7 +39,7 @@ $ ->
     Wayfarer.gallery_width = $("#gallery").width()
 
     feed = new Wayfarer.Collections.FeedCollection
-    feed.url = "http://dev.phillyinfocus.com/content-data/?callback=?&"+$.param(Wayfarer.config)
+    feed.url = "http://root:ph1lly!@dev.phillyinfocus.com/content-data/?callback=?&"+$.param(Wayfarer.config)
 
     markers_view = new Wayfarer.Views.Feeds.IndexView(
         map: map
