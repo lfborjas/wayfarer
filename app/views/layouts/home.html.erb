@@ -14,6 +14,7 @@
 <%= content_for :scripts do %>
   <script>
     Wayfarer.mode = "<%= @mode %>";
+    Wayfarer.config = <%= @extra_params.to_json.html_safe%>;
     Wayfarer.item_icon = "<%= image_path 'item.png' %>";
     Wayfarer.comment_icon = "<%= image_path 'comment.png' %>";
     Wayfarer.loading_icon = "<%= image_path 'loader.gif' %>";

@@ -5,6 +5,7 @@ class HomeController < ApplicationController
       @mode = params[:mode] || 'full'
       @width = params[:width] || 1265 
       @height = params[:height] || 800
+      @extra_params = params.except(:controller, :action, :mode, :width, :height, :format)
       format.js {render :template => 'home/embed' ,:layout => false}
       format.html do
         template = if @mode.eql?('full')
