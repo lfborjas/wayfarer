@@ -4,7 +4,11 @@ class Wayfarer.Models.Feed extends Backbone.Model
         @set(media_type: @get('post_type')) if @get('post_type')?
 
         #to take care of badly formatted titles
-        @set(title: @get('title')?.replace(/\+/g, " "))
+        if @get('title')?
+            @set(title: decodeURIComponent( @get('title')?.replace(/\+/g, "%20")  ))
+        if @get('description')?
+            @set(description: decodeURIComponent( @get('description')?.replace(/\+/g, "%20")  ))
+
 
         #to take care of the lng vs long mishap
         unless @get('lng')
