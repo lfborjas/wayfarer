@@ -59,9 +59,15 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
     fit_bounds : () ->
         if @bounds?
             @map.fitBounds @bounds
-    random_point: ->
-        sw = @map.getBounds().getSouthWest()
-        ne = @map.getBounds().getNorthEast()
+    random_point: (bounds) ->
+        bounds ||= @map.getBounds()
+        sw = bounds.getSouthWest()
+        ne = bounds.getNorthEast()
         lngSpan   = ne.lng() - sw.lng()
         latSpan   = ne.lat() - sw.lat()
         {lat: sw.lat() + latSpan*Math.random(), lng: sw.lng() + lngSpan*Math.random()}
+    random_point_around: (point, radius = 50)->
+        unless point instanceof google.maps.LatLng
+            point = new google.maps.LatLng(point.lat, point.lng)
+        circle = new google.maps.Circle({center: point, radius: radius})
+        @random_point(circle.getBounds())
