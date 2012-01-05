@@ -59,3 +59,9 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
     fit_bounds : () ->
         if @bounds?
             @map.fitBounds @bounds
+    random_point: ->
+        sw = @map.getBounds().getSouthWest()
+        ne = @map.getBounds().getNorthEast()
+        lngSpan   = ne.lng() - sw.lng()
+        latSpan   = ne.lat() - sw.lat()
+        {lat: sw.lat() + latSpan*Math.random(), lng: sw.lng() + lngSpan*Math.random()}

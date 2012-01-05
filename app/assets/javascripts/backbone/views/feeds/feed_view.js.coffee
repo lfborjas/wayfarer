@@ -18,7 +18,6 @@ class Wayfarer.Views.Feeds.IndexView extends Backbone.View
 
 class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView
     build_marker: (element)->
-        console.log element
         marker = @map.add_marker(element, true, element.selected_icon)
         marker.info_window = new google.maps.InfoWindow(
             content: Wayfarer.comment_template(element.toJSON())
