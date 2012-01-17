@@ -1,6 +1,11 @@
-<div id="pictour-container">
-  <h2>{{ title  }}</h2>
-  <div id="pictour-info">
-    <p>{{ description }}</p>
+<div class="event-container">
+  <h2 class="event-header">{{ title  }}</h2>
+  <div class="event-info">
+    <div class="event-description">
+      {{ description }}
+    </div>
+    <div class="event-data">
+      <a href="{{ url }}" class="event-link" target="_parent" >Read More</a>
+    </div>
   </div>
 </div>
