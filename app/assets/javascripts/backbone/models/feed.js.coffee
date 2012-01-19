@@ -58,7 +58,6 @@ class Wayfarer.Models.Feed extends Backbone.Model
 
 class Wayfarer.Models.Comment extends Backbone.Model
     initialize:->
-        @set(avatar: "http://pictour.us/photos/thumb/missing.png")
         unless @get('lng')
             @set(lng: @get('long'))
 

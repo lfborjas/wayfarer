@@ -196,8 +196,10 @@ $description_height: $photo_height / 3;
         float: left;
         background-color: white;
         height: 100%;
-        width: 60%;
+        width: 50%;
         overflow: auto;
+        padding: 20px;
+        font-size: 0.8em;
         &::-webkit-scrollbar {
             width: 7px;
         }
