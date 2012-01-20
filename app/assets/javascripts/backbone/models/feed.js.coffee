@@ -65,9 +65,10 @@ class Wayfarer.Models.Comment extends Backbone.Model
 
         #Fix zeroed points
         if (@get('lat') is 0) or (@get('lng') is 0)
-            @set(Wayfarer.map.random_point_around(Wayfarer.map.map.getCenter()))
+            @set(Wayfarer.map.random_point_around(Wayfarer.map.map.getCenter(), 1000))
+            console.log @get('lat'), @get('lng')
         else
-            @set(Wayfarer.map.random_point_around({lat: @get('lat'), lng: @get('lng')}, 200))
+            @set(Wayfarer.map.random_point_around({lat: @get('lat'), lng: @get('lng')}, 1000))
         @default_icon = new google.maps.MarkerImage(Wayfarer.comment_icon, null, null, null, new google.maps.Size(40,40))
         @selected_icon = new google.maps.MarkerImage(@get('avatar'), null, null, null, new google.maps.Size(40,40))
     highlight: ->
