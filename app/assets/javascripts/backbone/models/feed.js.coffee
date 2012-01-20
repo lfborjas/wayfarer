@@ -1,6 +1,7 @@
 class Wayfarer.Models.Feed extends Backbone.Model
     initialize: ->
         @comments = new Wayfarer.Collections.CommentCollection
+        @comments.parent_id = @cid
         @set(media_type: @get('post_type')) if @get('post_type')?
 
         #to take care of badly formatted titles
@@ -45,6 +46,7 @@ class Wayfarer.Models.Feed extends Backbone.Model
     dim: ->
         marker = @marker || {}
         marker.setVisible false
+        @comments.comment_count = 0
         @comments.each( (comment)->
             comment.marker.setVisible false
             comment.marker.info_window.close()
@@ -91,6 +93,10 @@ class Wayfarer.Collections.FeedCollection extends Backbone.Collection
 
 class Wayfarer.Collections.CommentCollection extends Backbone.Collection
     model: Wayfarer.Models.Comment
+    initialize: ->
+        @comment_count = 0
+    over_threshold: ->
+        @comment_count > 4
 
 class Wayfarer.Models.Photo extends Backbone.Model
     initialize:->
