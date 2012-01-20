@@ -59,6 +59,8 @@ class Wayfarer.Views.Maps.MapView extends Backbone.View
     fit_bounds : () ->
         if @bounds?
             @map.fitBounds @bounds
+        if @map.getZoom() > 13
+            @map.setZoom 13
     random_point: (bounds) ->
         bounds ||= @map.getBounds()
         sw = bounds.getSouthWest()
