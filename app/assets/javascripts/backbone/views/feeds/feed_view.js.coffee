@@ -39,11 +39,12 @@ class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView
         self = this
         @collection.fetch
             success:(collection)=>
-                #console.log Wayfarer.current_item.cid, @collection.parent_id
                 collection.each (element)=>
                     element.marker = @build_marker(element)
-                    collection.comment_count += 1
-                    unless collection.over_threshold()
+                    unless @collection.is_synched()
+                        element.marker.set_visible false
+                    @collection.comment_count += 1
+                    if @collection.is_synched() and !@collection.over_threshold()
                         element.marker.info_window.open(@map.map, element.marker)
                 unless collection.isEmpty()
                     @map.fit_bounds()

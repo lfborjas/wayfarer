@@ -97,6 +97,8 @@ class Wayfarer.Collections.CommentCollection extends Backbone.Collection
         @comment_count = 0
     over_threshold: ->
         @comment_count > 4
+    is_synched: ->
+        @parent_id is Wayfarer.current_item.cid
 
 class Wayfarer.Models.Photo extends Backbone.Model
     initialize:->
