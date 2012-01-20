@@ -1,4 +1,9 @@
 <div class="info-window">
-  <p class="commenter-info"><a href="#">{{ username }}</a> commented</p>
-  <p>{{ comment }}</p>
+  <p class="commenter-info"><strong>{{ username }}</strong> commented</p>
+  <p>
+    {{ truncated_comment }}
+    {%if(is_truncated){ %}
+      <a href="{{ url }}" target="_blank">Read more...</a>
+    {% } %}
+  </p>
 </div>

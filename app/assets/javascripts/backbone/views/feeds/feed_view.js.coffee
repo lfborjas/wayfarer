@@ -21,7 +21,10 @@ class Wayfarer.Views.Feeds.CommentsView extends Wayfarer.Views.Feeds.IndexView
     build_marker: (element)->
         marker = @map.add_marker(element, true, element.selected_icon)
         marker.info_window = new google.maps.InfoWindow(
-            content: Wayfarer.comment_template(element.toJSON())
+            content: Wayfarer.comment_template(_(element.toJSON()).extend(
+                truncated_comment: element.truncate()
+                is_truncated: element.is_truncated()
+            ))
             maxWidth: 300
             disableAutoPan: true
         )

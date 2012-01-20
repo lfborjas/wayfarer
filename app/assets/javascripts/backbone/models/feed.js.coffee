@@ -74,6 +74,12 @@ class Wayfarer.Models.Comment extends Backbone.Model
         Wayfarer.current_comment = this
     dim: ->
         @marker.info_window.close()
+    truncate: (n = 100)->
+        str = @get('comment')
+        s_ = if @is_truncated(n) then str.substr(0, n-1) else str
+        if @is_truncated(n) then s_.substr(0,s_.lastIndexOf(' ')) else s_
+    is_truncated: (n = 100) ->
+        @get('comment')?.length > n
 
 
 class Wayfarer.Collections.DemoCollection extends Backbone.Collection
